@@ -3,28 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using namesOfAllah.Models;
 namespace namesOfAllah.Controllers
 {
     public class HomeController : Controller
     {
+        Names NamesContext = new Names();
         public ActionResult Index()
         {
+            Name name = NamesContext.ListOfNames["Аллах"];
+            ViewBag.Name = name;
             return View();
         }
-
-        public ActionResult About()
+        public ActionResult Gospod()
         {
-            ViewBag.Message = "Your application description page.";
-
+            Name name = NamesContext.ListOfNames["Господь"];
+            ViewBag.Name = name;
             return View();
         }
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+        //public ActionResult About()
+        //{
+        //    ViewBag.Message = "Your application description page.";
 
-            return View();
-        }
+        //    return View();
+        //}
+
+        //public ActionResult Contact()
+        //{
+        //    ViewBag.Message = "Your contact page.";
+
+        //    return View();
+        //}
     }
 }
